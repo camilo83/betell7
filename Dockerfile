@@ -1,20 +1,20 @@
-# Usa la imagen oficial de PHP con Apache
-FROM php:7.4-apache
+# Usa la imagen oficial de PHP con PHP-FPM
+FROM php:7.4-fpm
 
-# Configura la variable de entorno que permite la reescritura de URLs
-RUN a2enmod rewrite
+# Instala Nginx
+RUN apt-get update && apt-get install -y nginx
+
+# Copia la configuración de Nginx
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copia el contenido del proyecto a la carpeta del servidor web
-COPY . /var/www/html/
-
-# Instala las extensiones de PHP necesarias para WordPress
-RUN docker-php-ext-install mysqli
+COPY . /var/www/html
 
 # Asigna los permisos correctos para los archivos y carpetas
 RUN chown -R www-data:www-data /var/www/html
 
-# Expone el puerto 80
+# Exponer los puertos necesarios
 EXPOSE 80
 
-# Inicia el servidor Apache
-CMD ["apache2-foreground"]
+# Comando para iniciar Nginx y PHP-FPM
+CMD ["sh", "-c", "php-fpm7.4 -D && nginx -g 'daemon off;'"]
