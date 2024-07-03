@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: nombre-de-tu-servicio
+    runtime: docker
+    envVars:
+      - key: DB_NAME
+        value: betell_db
+      - key: DB_USER
+        value: camilo83
+      - key: DB_PASSWORD
+        value: WBovfnnlzxy5ENbv1AKHRP0jDSpR6dhG
+      - key: DB_HOST
+        value: dpg-cq2lgpbv2p9s73evt9eg-a.oregon-postgres.render.com
+    plan: free # o el plan que hayas elegido
