@@ -17,4 +17,4 @@ RUN chown -R www-data:www-data /var/www/html
 EXPOSE 80
 
 # Comando para iniciar Nginx y PHP-FPM
-CMD ["sh", "-c", "php-fpm7.4 -D && nginx -g 'daemon off;'"]
+CMD ["sh", "-c", "php-fpm -D && nginx -g 'daemon off;'"]
