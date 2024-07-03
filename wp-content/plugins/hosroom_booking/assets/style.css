@@ -1,0 +1,47 @@
+#hosroom_booking {
+    width:100%;
+    min-height: 100px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#hosroom_booking .loading {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    background-color: #00000011;
+}
+
+#hosroom_booking.loaded .loading {
+    display: none;
+}
+
+.form_hosroom {
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    align-items: flex-end
+}
+
+.form_hosroom > * {
+    margin: 5px;
+    flex-grow: 1;
+}
+
+.form_hosroom > div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .form_hosroom input[type="date"], .form_hosroom input[type="number"]{
+    min-width: 200px;
+} */
