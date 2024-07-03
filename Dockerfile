@@ -10,9 +10,6 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # Copia el contenido del proyecto a la carpeta del servidor web
 COPY . /var/www/html
 
-# Copia el archivo de configuración fastcgi-php.conf para revisión
-RUN cp /etc/nginx/snippets/fastcgi-php.conf /var/www/html/fastcgi-php.conf
-
 # Asigna los permisos correctos para los archivos y carpetas
 RUN chown -R www-data:www-data /var/www/html
 
